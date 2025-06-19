@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@nsyte/cli": "jsr:@nsyte/cli@^0.11.0"
+  }
+}

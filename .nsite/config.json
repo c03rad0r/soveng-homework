@@ -1,0 +1,19 @@
+{
+  "relays": [
+    "wss://orangesync.tech",
+    "wss://nostr.mom/",
+    "wss://relay.wikifreedia.xyz/"
+  ],
+  "servers": [
+    "https://cdn.hzrd149.com/",
+    "https://cdn.sovbit.host/"
+  ],
+  "profile": {
+    "name": "soveng_test_nsyte",
+    "display_name": "soveng_test_nsyte",
+    "about": "soveng_test_nsyte"
+  },
+  "publishProfile": true,
+  "publishRelayList": true,
+  "publishServerList": true
+}
