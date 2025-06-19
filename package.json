@@ -1,0 +1,15 @@
+{
+  "name": "soveng",
+  "version": "1.0.0",
+  "description": "## Overview This project is a Nostr client that fetches notes with Proof of Work (PoW), calculates and displays the amount of PoW for each note, and sorts them by it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nostr-dev-kit/ndk": "^2.14.30"
+  }
+}
