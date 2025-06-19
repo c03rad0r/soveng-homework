@@ -31,7 +31,7 @@ After configuration, `@nsyte/cli` will upload your files to the specified server
 ## Accessing Your Nsite
 Your nsite will be available on any nsite gateway, for example:
 ```
-https://npub19kfqpp3a0xmaf3l2rxz7vux5zhfdfpg03zqxdfalyju63ancr23q05cvh0.nsite.lol/
+https://npub1zznrvtvjd48v32cakmsvsgt2zdz5mc3vaylyarsak95sld9rjm9sqg45hf.nsite.lol/
 ```
 
 ## Design Documents

@@ -1,8 +1,8 @@
 {
   "relays": [
-    "wss://orangesync.tech",
-    "wss://nostr.mom/",
-    "wss://relay.wikifreedia.xyz/"
+    "wss://relay.nostr.band",
+    "wss://nos.lol",
+    "wss://relay.damus.io"
   ],
   "servers": [
     "https://cdn.hzrd149.com/",

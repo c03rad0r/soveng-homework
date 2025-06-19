@@ -1,15 +1,21 @@
 // Import NDK using ES modules
 import NDK from '@nostr-dev-kit/ndk';
 
-// Initialize NDK
-const ndk = new NDK({ explicitRelayUrls: ['wss://relay.nostr.band'] });
+// Initialize NDK with multiple relays
+const ndk = new NDK({ 
+  explicitRelayUrls: [
+    'wss://orangesync.tech',
+    'wss://nostr.mom',
+    'wss://relay.wikifreedia.xyz'
+  ] 
+});
 
 // Function to fetch notes from Nostr relays
 async function fetchNotes() {
     try {
         await ndk.connect();
         const events = await ndk.fetchEvents({
-            kinds: [1], // Text notes
+            kinds: [1], // Fetch events of kind 34128
             limit: 100, // Fetch last 100 notes
         });
         // Convert Set to Array
