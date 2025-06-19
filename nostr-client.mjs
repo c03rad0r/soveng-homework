@@ -1,5 +1,5 @@
 // Import NDK using ES modules
-import NDK from '@nostr-dev-kit/ndk';
+import NDK from 'https://esm.sh/@nostr-dev-kit/ndk';
 
 // Initialize NDK with multiple relays
 const ndk = new NDK({ 
@@ -38,44 +38,31 @@ function sortNotesByPoW(notes) {
     return notes.sort((a, b) => calculatePoW(b) - calculatePoW(a));
 }
 
-// Main function to fetch, sort, and display notes
 async function main() {
     const notes = await fetchNotes();
-    const sortedNotes = sortNotesByPoW(notes);
+const sortedNotes = sortNotesByPoW(notes);
+console.log('Fetched notes:', notes);
+console.log('Sorted notes:', sortedNotes);
+renderNotes(sortedNotes);
+}
 
-    let htmlContent = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Sorted Nostr Notes</title>
-        <style>
-            body { font-family: Arial, sans-serif; }
-            .note { margin-bottom: 20px; }
-        </style>
-    </head>
-    <body>
-        <h1>Sorted Nostr Notes by PoW</h1>
-    `;
+function renderNotes(notes) {
+    const container = document.createElement('div');
+    container.innerHTML = '<h1>Sorted Nostr Notes by PoW</h1>';
 
-    sortedNotes.forEach((note) => {
-        htmlContent += `
-        <div class="note">
+    notes.forEach((note) => {
+        const noteElement = document.createElement('div');
+        noteElement.classList.add('note');
+        noteElement.innerHTML = `
             <h2>Note ID: ${note.id}</h2>
             <p>PoW: ${calculatePoW(note)}</p>
             <p>Content: ${note.content}</p>
             <hr>
-        </div>
         `;
+        container.appendChild(noteElement);
     });
 
-    htmlContent += `
-    </body>
-    </html>
-    `;
-
-    const fs = await import('fs/promises');
-    await fs.writeFile('index.html', htmlContent);
-    console.log('HTML file generated: index.html');
+    document.body.appendChild(container);
 }
 
 main().catch(console.error);
