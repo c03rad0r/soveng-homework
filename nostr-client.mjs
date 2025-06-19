@@ -36,13 +36,40 @@ function sortNotesByPoW(notes) {
 async function main() {
     const notes = await fetchNotes();
     const sortedNotes = sortNotesByPoW(notes);
-    
-    console.log('Sorted Notes:');
+
+    let htmlContent = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Sorted Nostr Notes</title>
+        <style>
+            body { font-family: Arial, sans-serif; }
+            .note { margin-bottom: 20px; }
+        </style>
+    </head>
+    <body>
+        <h1>Sorted Nostr Notes by PoW</h1>
+    `;
+
     sortedNotes.forEach((note) => {
-        console.log(`Note ID: ${note.id}, PoW: ${calculatePoW(note)}`);
-        console.log(`Content: ${note.content}`);
-        console.log('---');
+        htmlContent += `
+        <div class="note">
+            <h2>Note ID: ${note.id}</h2>
+            <p>PoW: ${calculatePoW(note)}</p>
+            <p>Content: ${note.content}</p>
+            <hr>
+        </div>
+        `;
     });
+
+    htmlContent += `
+    </body>
+    </html>
+    `;
+
+    const fs = await import('fs/promises');
+    await fs.writeFile('index.html', htmlContent);
+    console.log('HTML file generated: index.html');
 }
 
 main().catch(console.error);
