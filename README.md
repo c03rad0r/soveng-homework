@@ -7,11 +7,12 @@ This guide provides step-by-step instructions on setting up and deploying an nsi
 1. Install Deno on your system.
 2. Create a new directory for your project and navigate into it.
 
-## Step 1: Generate `index.html`
-Run the following command to generate `index.html`:
+## Step 1: Configure and Deploy `@nsyte/cli`
+Run the following command to deploy your site:
 ```bash
-node nostr-client.mjs
+deno run -A jsr:@nsyte/cli upload ./
 ```
+Follow the interactive prompts to configure your Nostr key and other settings.
 
 ## Step 2: Configure and Deploy `@nsyte/cli`
 Run the following command to deploy your site:
@@ -35,7 +36,7 @@ After configuration, `@nsyte/cli` will upload your files to the specified server
 ## Accessing Your Nsite
 Your nsite will be available on any nsite gateway, for example:
 ```
-https://npub1emm7xh5whfexaagcnfns8wt4kvz2klaxm5td8uupgexzu0pn7mxqqc9l2l.nsite.lol/
+https://npub1t3fkvr55sw6qvlrrutasq466qmr0qa08ectdd0jexqudhhe6npdq5thtln.nsite.lol/
 ```
 
 ## Understanding Nsite Operation
