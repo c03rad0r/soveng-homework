@@ -7,13 +7,17 @@ This guide provides step-by-step instructions on setting up and deploying an nsi
 1. Install Deno on your system.
 2. Create a new directory for your project and navigate into it.
 
-## Step 1: Initialize `@nsyte/cli`
-Run the following command to deploy your site:
-```
-deno run -A jsr:@nsyte/cli upload ./
+## Step 1: Generate `index.html`
+Run the following command to generate `index.html`:
+```bash
+node nostr-client.mjs
 ```
 
-## Step 2: Configure `@nsyte/cli`
+## Step 2: Configure and Deploy `@nsyte/cli`
+Run the following command to deploy your site:
+```bash
+deno run -A jsr:@nsyte/cli upload ./
+```
 Follow the interactive prompts to:
 1. Manage your Nostr key (generate a new private key or use an existing one).
 2. Enter your website or project name and description.
@@ -21,8 +25,8 @@ Follow the interactive prompts to:
 4. Choose whether to publish profile information, relay list, and server list to Nostr.
 
 ## Example Configuration
-- User: `2d9200863d79b7d4c7ea1985e670d415d2d4850f888066a7bf24b9a8f6781aa2`
-- Relays: `wss://orangesync.tech`, `wss://nostr.mom/`, `wss://relay.wikifreedia.xyz/`
+- User: `cef7e35e8eba726ef5189a6703b975b304ab7fa6dd16d3f381464c2e3c33f6cc`
+- Relays: `wss://relay.nostr.band`, `wss://nos.lol`, `wss://relay.damus.io`
 - Servers: `https://cdn.hzrd149.com/`, `https://cdn.sovbit.host/`
 
 ## Deployment
@@ -31,7 +35,7 @@ After configuration, `@nsyte/cli` will upload your files to the specified server
 ## Accessing Your Nsite
 Your nsite will be available on any nsite gateway, for example:
 ```
-https://npub1zznrvtvjd48v32cakmsvsgt2zdz5mc3vaylyarsak95sld9rjm9sqg45hf.nsite.lol/
+https://npub1emm7xh5whfexaagcnfns8wt4kvz2klaxm5td8uupgexzu0pn7mxqqc9l2l.nsite.lol/
 ```
 
 ## Design Documents
