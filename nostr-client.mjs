@@ -1,5 +1,5 @@
 // Import NDK using ES modules
-import NDK from '@nostr-dev-kit/ndk';
+import NDK from 'https://esm.sh/@nostr-dev-kit/ndk';
 
 // Initialize NDK with multiple relays
 const ndk = new NDK({ 
@@ -40,8 +40,10 @@ function sortNotesByPoW(notes) {
 
 async function main() {
     const notes = await fetchNotes();
-    const sortedNotes = sortNotesByPoW(notes);
-    renderNotes(sortedNotes);
+const sortedNotes = sortNotesByPoW(notes);
+console.log('Fetched notes:', notes);
+console.log('Sorted notes:', sortedNotes);
+renderNotes(sortedNotes);
 }
 
 function renderNotes(notes) {
