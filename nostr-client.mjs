@@ -26,11 +26,22 @@ async function fetchNotes() {
     }
 }
 
-// Function to calculate PoW for a note
+// Function to calculate PoW for a note based on NIP-13
 function calculatePoW(event) {
-    // Implement PoW calculation logic here
-    // For demonstration, let's assume PoW is the number of leading zeros in the event ID
-    return event.id.split('0').length - 1;
+    const hex = event.id;
+    let count = 0;
+
+    for (let i = 0; i < hex.length; i++) {
+        const nibble = parseInt(hex[i], 16);
+        if (nibble === 0) {
+            count += 4;
+        } else {
+            count += Math.clz32(nibble) - 28;
+            break;
+        }
+    }
+
+    return count;
 }
 
 // Function to sort notes by PoW
